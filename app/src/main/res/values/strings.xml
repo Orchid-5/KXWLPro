@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">KXPro</string>
+
+
+
+
+    <string name="goods_name_tag">商品名称</string>
+    <string name="goods_name_tag_hint">商品名称（限15个字）</string>
+    <string name="goods_barcode_tag">商品条码</string>
+    <string name="goods_kind_tag">商品分类</string>
+    <string name="goods_specification_tag">商品规格</string>
+</resources>
