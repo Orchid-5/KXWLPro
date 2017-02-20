@@ -17,6 +17,7 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
 import java.io.IOException;
+import java.util.regex.Pattern;
 
 import okhttp3.ResponseBody;
 import retrofit2.Call;
@@ -79,10 +80,16 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void extracGoodsInfo(String str){
-        Document doc=Jsoup.parse(str);
-        Element goodsName = doc.getElementById("Att_Sys_zh-cn_141_G");
-        Elements scripts = doc.getElementsByTag("script");
-        Log.e("scripts",scripts.get(1).data()+"");
+        Pattern pattern= Pattern.compile("SetValue");
+        String[] v= str.split("SetValue");
+        for(int i=0;i<v.length;i++){
+            Log.e("v"+i,v[i]);
+        }
+       // Log.e("v",v.length+"");
+//        Document doc=Jsoup.parse(str);
+//        Element goodsName = doc.getElementById("Att_Sys_zh-cn_141_G");
+//        Elements scripts = doc.getElementsByTag("script");
+       // Log.e("scripts",scripts.get(1).data()+"");
 
     }
 
@@ -95,13 +102,13 @@ public class MainActivity extends AppCompatActivity {
             public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
                 try {
                     String rs=response.body().string();
-                    System.out.println(rs);
+                    //System.out.println(rs);
                     if(rs.contains("430ml")){
                         Log.e("是否包含init","包含");
                     }else{
                         Log.e("是否包含init","不包含");
                     }
-                    Log.e("goodspage 长度",rs.length()+""+rs);
+                   // Log.e("goodspage 长度",rs.length()+""+rs);
                     extracGoodsInfo(rs);
                 } catch (IOException e) {
                     e.printStackTrace();
