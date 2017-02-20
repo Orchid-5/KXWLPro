@@ -32,6 +32,7 @@
             android:textSize="@dimen/font_normal"
             android:text="@string/goods_name_tag" />
         <EditText
+            android:id="@+id/et_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@null"
@@ -78,6 +79,7 @@
             android:textSize="@dimen/font_normal"
             android:text="@string/goods_kind_tag" />
         <EditText
+            android:id="@+id/et_classification"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="@dimen/font_normal"
@@ -100,6 +102,7 @@
                 android:textSize="@dimen/font_normal"
                 android:text="@string/goods_specification_tag" />
             <EditText
+                android:id="@+id/et_sepification"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="@dimen/font_normal"

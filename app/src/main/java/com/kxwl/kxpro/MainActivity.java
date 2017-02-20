@@ -8,6 +8,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.kxwl.kxpro.entity.Extractor;
+import com.kxwl.kxpro.entity.Goods;
 import com.kxwl.kxpro.retrofit.GoodsInfoService;
 import com.kxwl.kxpro.retrofit.GoodsService;
 
@@ -28,6 +30,9 @@ import retrofit2.Retrofit;
 public class MainActivity extends AppCompatActivity {
 
     private EditText barCodeET;
+    private EditText nameET;
+    private EditText classificationET;
+    private EditText sepificationET;
     private Button loadBTN;
 
     @Override
@@ -40,6 +45,9 @@ public class MainActivity extends AppCompatActivity {
 
     private void findViews() {
         barCodeET = (EditText) findViewById(R.id.et_barcode);
+        nameET = (EditText) findViewById(R.id.et_name);
+        classificationET = (EditText) findViewById(R.id.et_classification);
+        sepificationET = (EditText) findViewById(R.id.et_sepification);
         loadBTN = (Button) findViewById(R.id.loadBTN);
     }
 
@@ -79,19 +87,7 @@ public class MainActivity extends AppCompatActivity {
         loadGoodsInfo(baseId);
     }
 
-    public void extracGoodsInfo(String str){
-        Pattern pattern= Pattern.compile("SetValue");
-        String[] v= str.split("SetValue");
-        for(int i=0;i<v.length;i++){
-            Log.e("v"+i,v[i]);
-        }
-       // Log.e("v",v.length+"");
-//        Document doc=Jsoup.parse(str);
-//        Element goodsName = doc.getElementById("Att_Sys_zh-cn_141_G");
-//        Elements scripts = doc.getElementsByTag("script");
-       // Log.e("scripts",scripts.get(1).data()+"");
 
-    }
 
     public void loadGoodsInfo(String baseId){
         Retrofit retrofit=new Retrofit.Builder().baseUrl(" http://www.anccnet.com/").build();
@@ -102,14 +98,9 @@ public class MainActivity extends AppCompatActivity {
             public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
                 try {
                     String rs=response.body().string();
-                    //System.out.println(rs);
-                    if(rs.contains("430ml")){
-                        Log.e("是否包含init","包含");
-                    }else{
-                        Log.e("是否包含init","不包含");
-                    }
-                   // Log.e("goodspage 长度",rs.length()+""+rs);
-                    extracGoodsInfo(rs);
+                    Goods goods=Extractor.extractFromStr(rs);
+                    Log.e("商品描述",goods.toString());
+                    showGoodsInfo(goods);
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -120,5 +111,11 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+    }
+
+    public void showGoodsInfo(Goods goods){
+        nameET.setText(goods.getBrand()+goods.getName());
+        sepificationET.setText(goods.getSpecification());
+        classificationET.setText(goods.getClassification());
     }
 }
