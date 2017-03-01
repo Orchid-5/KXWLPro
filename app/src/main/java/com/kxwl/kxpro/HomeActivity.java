@@ -1,5 +1,6 @@
 package com.kxwl.kxpro;
 
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -13,11 +14,12 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.kxwl.kxpro.fragments.GoodsFragment;
 import com.kxwl.kxpro.fragments.ShoppingBillFragment;
 import com.kxwl.kxpro.fragments.dummy.DummyContent;
 
 public class HomeActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener,ShoppingBillFragment.OnListFragmentInteractionListener {
+        implements NavigationView.OnNavigationItemSelectedListener,ShoppingBillFragment.OnListFragmentInteractionListener,GoodsFragment.OnFragmentInteractionListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -107,6 +109,11 @@ public class HomeActivity extends AppCompatActivity
 
     @Override
     public void onListFragmentInteraction(DummyContent.DummyItem item) {
+
+    }
+
+    @Override
+    public void onFragmentInteraction(Uri uri) {
 
     }
 }

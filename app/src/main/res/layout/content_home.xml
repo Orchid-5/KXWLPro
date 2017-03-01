@@ -22,8 +22,9 @@
 
     <fragment
         android:id="@+id/fragment_goodslist"
-        android:name="com.kxwl.kxpro.fragments.ShoppingBillFragment"
+        android:name="com.kxwl.kxpro.fragments.GoodsFragment"
         android:layout_width="0dp"
         android:layout_weight="2"
+        android:layout_marginLeft="5dp"
         android:layout_height="match_parent" />
 </LinearLayout>

@@ -7,10 +7,13 @@
     <string name="goods_barcode_tag">商品条码</string>
     <string name="goods_kind_tag">商品分类</string>
     <string name="goods_specification_tag">商品规格</string>
-    <string name="title_activity_home">HomeActivity</string>
+    <string name="title_activity_home">酷想未来收银</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
     <string name="action_settings">Settings</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

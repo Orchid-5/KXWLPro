@@ -63,8 +63,8 @@ public class ShoppingBillFragment extends Fragment {
         RecyclerView v=(RecyclerView)view.findViewById(R.id.list);
         // Set the adapter
         if (v instanceof RecyclerView) {
-            Context context = view.getContext();
-            RecyclerView recyclerView = (RecyclerView) view;
+            Context context = v.getContext();
+            RecyclerView recyclerView = (RecyclerView) v;
             if (mColumnCount <= 1) {
                 recyclerView.setLayoutManager(new LinearLayoutManager(context));
             } else {
