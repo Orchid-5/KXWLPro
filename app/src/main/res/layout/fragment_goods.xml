@@ -20,6 +20,7 @@
             android:src="@mipmap/list_128_1"
             />
         <android.support.v7.widget.RecyclerView
+            android:id="@+id/rv_goods_list"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"

@@ -2,29 +2,31 @@ package com.kxwl.kxpro.entity;
 
 import com.j256.ormlite.field.DatabaseField;
 
-/**the description of the goods
- * Created by answer on 2017-02-20.
+/**
+ * Created by SEELE on 2017/3/2.
  */
-public class Goods {
+public class GoodsEntity {
 
-
+    @DatabaseField(generatedId = true)
+    private int id;
+    @DatabaseField
     private String name;//the name of the goods
-
+    @DatabaseField
     private String barCode;// the barcode of the goods
-
+    @DatabaseField
     private String specification;//the sepecification of the goods,just like the volume 340ml
-
+    @DatabaseField
     private String brand;//the brand which the goods belong to,just like the cola belong to BaiShi
-
+    @DatabaseField
     private String origin;//the origin of the goods,for example China
+    @DatabaseField(foreign = true,columnName = "classification_id")
+    private ClassificationEntity classification;//the classification of the goods which just called UNSPSC --The Universal Standard Products and Services Classification
 
-    private String classification;//the classification of the goods which just called UNSPSC --The Universal Standard Products and Services Classification
-
-    public Goods() {
-        this.name=this.barCode=this.specification=this.brand=this.origin=this.classification="";
+    public GoodsEntity() {
     }
 
-    public Goods(String name, String barCode, String specification, String brand, String origin, String classification) {
+    public GoodsEntity(int id, String name, String barCode, String specification, String brand, String origin, ClassificationEntity classification) {
+        this.id = id;
         this.name = name;
         this.barCode = barCode;
         this.specification = specification;
@@ -33,11 +35,11 @@ public class Goods {
         this.classification = classification;
     }
 
-    public String getClassification() {
+    public ClassificationEntity getClassification() {
         return classification;
     }
 
-    public void setClassification(String classification) {
+    public void setClassification(ClassificationEntity classification) {
         this.classification = classification;
     }
 
@@ -95,3 +97,4 @@ public class Goods {
                 '}';
     }
 }
+

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">KXPro</string>
+    <string name="app_name">酷想收银</string>
 
 
     <string name="goods_name_tag">商品名称</string>
@@ -7,7 +7,7 @@
     <string name="goods_barcode_tag">商品条码</string>
     <string name="goods_kind_tag">商品分类</string>
     <string name="goods_specification_tag">商品规格</string>
-    <string name="title_activity_home">酷想未来收银</string>
+    <string name="title_activity_home">酷想收银</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
